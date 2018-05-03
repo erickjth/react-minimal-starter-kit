@@ -1,4 +1,4 @@
-# react-minimal-started-kit
+# react-minimal-starter-kit
 
 ## Installation
 
