@@ -4,15 +4,16 @@ import App from './App';
 
 const MOUNT_NODE = document.getElementById('app');
 
-const render = () => {
-	ReactDOM.render(<App />, MOUNT_NODE);
+const render = (Component) => {
+	ReactDOM.render(<Component />, MOUNT_NODE);
 };
 
 if (module.hot) {
-	module.hot.accept(['./App'], () => {
+	module.hot.accept('./App', () => {
+		const newApp = require('./App').default;
 		ReactDOM.unmountComponentAtNode(MOUNT_NODE);
-		render();
+		render(newApp);
 	});
 }
 
-render();
+render(App);

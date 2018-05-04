@@ -1,22 +1,16 @@
-// Important modules this config uses
 const path = require('path');
-// const webpack = require('webpack');
+const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const common = require('./webpack.common');
 
-module.exports = require('./webpack.base')({
-	mode: 'production',
-	// In production, we skip all hot-reloading stuff
+module.exports = merge(common, {
 	entry: [
-		path.join(__dirname, 'src/index.js')
+		path.join(__dirname, 'src/index.js') // Start with js/app.js
 	],
 
-	// Utilize long-term caching by adding content hashes (not compilation hashes) to compiled assets
-	output: {
-		filename: 'bundle.js'
-	},
+	mode: 'production',
 
-	plugins: [
-	],
+	devtool: 'source-map',
 
 	performance: {
 		assetFilter: (assetFilename) => !(/(\.map$)|(^(main\.|favicon\.))/.test(assetFilename)),

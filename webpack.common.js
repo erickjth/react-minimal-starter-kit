@@ -4,13 +4,13 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const dist = path.join(__dirname, 'dist');
 
-module.exports = (options) => ({
-	mode: options.mode,
-	entry: options.entry,
-	output: Object.assign({ // Compile into js/build.js
+module.exports = {
+	output: {
+		filename: '[name].js',
 		path: dist,
 		publicPath: '/',
-	}, options.output), // Merge with env dependent settings
+	},
+
 	module: {
 		rules: [
 			{
@@ -18,7 +18,6 @@ module.exports = (options) => ({
 				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader',
-					options: options.babelQuery,
 				},
 			},
 			{
@@ -65,23 +64,20 @@ module.exports = (options) => ({
 			}
 		],
 	},
-	plugins: options.plugins.concat([
-		new CleanWebpackPlugin([dist], {}),
 
+	plugins: [
+		new CleanWebpackPlugin([dist], {}),
 		new webpack.ProvidePlugin({
 			// make fetch available
 			fetch: 'exports-loader?self.fetch!whatwg-fetch'
 		}),
-
-		// Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
-		// inside your code for any environment checks; UglifyJS will automatically
-		// drop any unreachable code.
 		new webpack.DefinePlugin({
 			'process.env': {
 				NODE_ENV: JSON.stringify(process.env.NODE_ENV)
 			},
 		})
-	]),
+	],
+
 	resolve: {
 		modules: ['src', 'node_modules'],
 		extensions: [
@@ -91,10 +87,12 @@ module.exports = (options) => ({
 			'.react.js'
 		],
 	},
-	devtool: options.devtool,
+
 	target: 'web', // Make web variables accessible to webpack, e.g. window
-	performance: options.performance || {},
+
+	performance: {},
+
 	optimization: {
 		namedModules: true,
 	}
-});
+};
