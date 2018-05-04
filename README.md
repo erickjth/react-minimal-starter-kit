@@ -2,9 +2,12 @@
 
 ## Installation
 
-* yarn install
-* yarn start
-* Go to `http://localhost:8080/`
+* `yarn install`
+* `yarn start`
+* Go to `http://localhost:3000/`
+
+## Build
+* `yarn build
 
 ## Environment
 
