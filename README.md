@@ -7,7 +7,7 @@
 * Go to `http://localhost:3000/`
 
 ## Build
-* `yarn build
+* `yarn build`
 
 ## Environment
 
