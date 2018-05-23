@@ -25,14 +25,14 @@
 * reselect
 * bootstrap
 
-## Redux Structure
+## Redux Structure
 This project uses an approach based on the redux ducks modular which includes the following directory strcuture:
 
 * modules/ (path to locate every redux module. e.g. account, auth, etc.)
 * saga/ (redux module might or might not have a saga related into this path.)
 * store/ (Setting for redux)
 
-## Other directoris
+## Other directories
 * services/ (api/mockApi)
 * common/ (helpers, libraries, etc.)
 * router/ (route definition)
