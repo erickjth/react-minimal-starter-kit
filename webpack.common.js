@@ -4,6 +4,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const dist = path.join(__dirname, 'dist');
 
+const environment = process.env.NODE_ENV || 'development';
+
 module.exports = {
 	output: {
 		filename: '[name].js',
@@ -16,9 +18,7 @@ module.exports = {
 			{
 				test: /\.(js|jsx)$/, // Transform all .js files required somewhere with Babel
 				exclude: /node_modules/,
-				use: {
-					loader: 'babel-loader',
-				},
+				use: ['babel-loader']
 			},
 			{
 				// Preprocess our own .scss files
@@ -69,11 +69,11 @@ module.exports = {
 		new CleanWebpackPlugin([dist], {}),
 		new webpack.ProvidePlugin({
 			// make fetch available
-			fetch: 'exports-loader?self.fetch!whatwg-fetch'
+			fetch: 'exports-loader?self.fetch!whatwg-fetch',
 		}),
 		new webpack.DefinePlugin({
 			'process.env': {
-				NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+				NODE_ENV: JSON.stringify(environment)
 			},
 		})
 	],

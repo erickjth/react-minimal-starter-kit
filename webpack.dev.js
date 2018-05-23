@@ -8,6 +8,7 @@ module.exports = merge(common, {
 	mode: 'development',
 
 	entry: [
+		'babel-polyfill',
 		path.join(__dirname, 'src/index.js') // Start with js/app.js
 	],
 

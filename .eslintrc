@@ -1,0 +1,28 @@
+{
+	"parser": "babel-eslint",
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:jsx-a11y/recommended"
+	],
+	"plugins": [ "react", "jsx-a11y"],
+	"rules": {
+		"semi": ["error", "always"],
+		"quotes": ["error", "single"],
+		"indent": [2, "tab"],
+		"no-tabs": 0,
+		"space-before-function-paren": ["error", "never"],
+		"space-in-parens": ["error", "never"],
+		"no-underscore-dangle": 0,
+		"no-console": 0,
+		"jsx-a11y/label-has-for": 0,
+		"react/display-name": 0,
+		"jsx-a11y/no-onchange": 0,
+		"react/prop-types": 0
+	},
+	"env": {
+		"browser": true,
+		"es6": true,
+		"node": true
+	}
+}

@@ -1,0 +1,17 @@
+root = true
+
+[src/**.js]
+charset = utf-8
+indent_style = tab
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[src/**.scss]
+charset = utf-8
+indent_style = tab
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[{package.json}]
+indent_style = space
+indent_size = 2
