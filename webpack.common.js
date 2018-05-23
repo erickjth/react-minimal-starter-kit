@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const dist = path.join(__dirname, 'dist');
+const srcDir = path.join(__dirname, 'src');
+const nodeModules = path.resolve(path.join(__dirname, 'node_modules'));
 
 const environment = process.env.NODE_ENV || 'development';
 
@@ -23,7 +25,10 @@ module.exports = {
 			{
 				// Preprocess our own .scss files
 				test: /\.scss$/,
-				exclude: /node_modules/,
+				include: [
+					path.join(nodeModules, 'bootstrap'),
+					path.join(srcDir, 'styles')
+				],
 				use: ['style-loader', 'css-loader', 'sass-loader'],
 			},
 			{
@@ -86,6 +91,19 @@ module.exports = {
 			'.scss',
 			'.react.js'
 		],
+
+		alias: {
+			components: `${path.join(__dirname, 'src')}/components/`,
+			config: `${path.join(__dirname, 'src')}/config/`,
+			common: `${path.join(__dirname, 'src')}/common/`,
+			assets: `${path.join(__dirname, 'src')}/assets/`,
+			views: `${path.join(__dirname, 'src')}/views/`,
+			router: `${path.join(__dirname, 'src')}/router/`,
+			modules: `${path.join(__dirname, 'src')}/modules/`,
+			store: `${path.join(__dirname, 'src')}/store/`,
+			sagas: `${path.join(__dirname, 'src')}/sagas/`,
+			services: `${path.join(__dirname, 'src')}/services/`,
+		}
 	},
 
 	target: 'web', // Make web variables accessible to webpack, e.g. window

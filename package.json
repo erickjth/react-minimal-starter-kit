@@ -42,10 +42,29 @@
     "webpack-merge": "^4.1.2"
   },
   "dependencies": {
+    "apisauce": "^0.14.3",
     "babel-polyfill": "^6.26.0",
+    "bootstrap": "^4.1.1",
+    "classnames": "^2.2.5",
+    "history": "^4.7.2",
     "hoist-non-react-statics": "^2.5.0",
+    "moment": "^2.22.1",
+    "prop-types": "^15.6.1",
+    "query-string": "^6.1.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.9",
+    "redux": "^4.0.0",
+    "redux-devtools": "^3.4.1",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^5.9.1",
+    "redux-saga": "^0.16.0",
+    "reduxsauce": "^1.0.0",
+    "reselect": "^3.0.1",
+    "uuid": "^3.2.1",
     "whatwg-fetch": "^2.0.4"
   }
 }
